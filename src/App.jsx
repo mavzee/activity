@@ -1,35 +1,23 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react";
+import "./App.css";
+ 
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const HeroBanner = () => {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
+    <div className="hero-container">
+      <div className="hero-content">
+        <h1>
+          Ivan <span className="highlight">Guerrero</span>
+        </h1>
         <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+        I’m Ivan, a passionate front-end developer aspirant focused on building beautiful, responsive web experiences. With a strong foundation in HTML, CSS, JavaScript, and React, I’m always learning new technologies to create dynamic and user-friendly interfaces. Let's bring creative ideas to life on the web!
 
-export default App
+
+        </p>
+        <button className="hero-button">Learn More</button>
+      </div>
+    </div>
+  );
+};
+
+export default HeroBanner;
