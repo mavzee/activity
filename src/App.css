@@ -1,42 +1,253 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;600&family=Exo+2:wght@400;700&family=Titillium+Web:wght@400;700&display=swap');
+
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  
+  background: url('/img/SL-043021-42650-20.jpg') no-repeat center center/cover;
+  color: white;
   text-align: center;
+  position: relative;
+  
+  font-family: 'Titillium Web', sans-serif;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.hero-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.hero-content {
+  max-width: 600px;
+  position: relative;
+  z-index: 2;
+  animation: bounceIn 1.5s ease-in-out;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+@keyframes bounceIn {
+  0% { opacity: 0; transform: translateY(-50px); }
+  50% { transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
-.card {
-  padding: 2em;
+h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 4.5rem;
+  font-weight: 700;
+  transition: transform 0.3s ease-in-out, color 0.3s;
+  text-shadow: 3px 3px 10px rgba(255, 165, 0, 0.8);
+  animation: floating 3s infinite, techGlow 2s infinite alternate;
 }
 
-.read-the-docs {
-  color: #888;
+@keyframes floating {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes techGlow {
+  0% { text-shadow: 3px 3px 10px rgba(255, 165, 0, 0.8); }
+  100% { text-shadow: 3px 3px 20px rgba(255, 255, 0, 1); }
+}
+
+h1:hover {
+  transform: scale(1.2) rotate(5deg);
+  color: yellow;
+  animation: techGlitch 0.3s infinite;
+}
+
+@keyframes techGlitch {
+  0% { transform: skewX(0deg); }
+  25% { transform: skewX(5deg); }
+  50% { transform: skewX(-5deg); }
+  75% { transform: skewX(5deg); }
+  100% { transform: skewX(0deg); }
+}
+
+p {
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 300;
+  margin: 20px 0;
+  letter-spacing: 1px;
+  font-style: italic;
+}
+
+.hero-button {
+  background: orange;
+  color: black;
+  border: none;
+  padding: 14px 28px;
+  font-size: 1.4rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  z-index: 2;
+  border-radius: 20px;
+  box-shadow: 0px 4px 10px rgba(255, 165, 0, 0.4);
+  animation: wiggle 2s infinite, colorFlash 1.5s infinite;
+}
+
+@keyframes wiggle {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(3deg); }
+  50% { transform: rotate(-3deg); }
+  75% { transform: rotate(3deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes colorFlash {
+  0% { background: orange; }
+  50% { background: red; }
+  100% { background: orange; }
+}
+
+.hero-button:hover {
+  background: 
+#e94100;
+  color: black;
+  transform: scale(1.2) rotate(-10deg);
+  box-shadow: 0px 6px 15px rgba(255, 165, 0, 0.6);
+  animation: spin 0.5s linear, glitchEffect 0.3s infinite;
+}
+
+@keyframes glitchEffect {
+  0% { transform: skewX(0deg); }
+  25% { transform: skewX(5deg); }
+  50% { transform: skewX(-5deg); }
+  75% { transform: skewX(5deg); }
+  100% { transform: skewX(0deg); }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  min-height: 100vh; /* Changed from height to min-height */
+  background: url('/img/SL-043021-42650-20.jpg') no-repeat center center/cover fixed;
+  color: white;
+  text-align: center;
+  position: relative;
+  font-family: 'Titillium Web', sans-serif;
+}
+
+.hero-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+.hero-content {
+  max-width: 800px; /* Increased max-width for better readability */
+  position: relative;
+  z-index: 2;
+  animation: bounceIn 1.5s ease-in-out;
+  padding: 20px; /* Added padding for spacing */
+}
+
+.section {
+  margin: 40px 0;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.section h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  color: orange;
+  text-shadow: 2px 2px 5px rgba(255, 165, 0, 0.6);
+}
+
+.section p {
+  font-size: 1.4rem;
+  line-height: 1.8;
+  color: white;
+}
+
+.skills-list {
+  list-style: none;
+  padding: 0;
+}
+
+.skills-list li {
+  font-size: 1.4rem;
+  margin: 10px 0;
+  padding: 10px;
+  background: rgba(255, 165, 0, 0.1);
+  border-radius: 10px;
+  border-left: 4px solid orange;
+  transition: transform 0.3s ease-in-out, background 0.3s;
+}
+
+.skills-list li:hover {
+  transform: translateX(10px);
+  background: rgba(255, 165, 0, 0.2);
+}
+
+.highlight {
+  color: orange;
+  font-weight: bold;
+  text-shadow: 2px 2px 5px rgba(255, 165, 0, 0.6);
+}
+
+.intro {
+  font-size: 1.6rem;
+  font-weight: 300;
+  margin: 20px 0;
+  letter-spacing: 1px;
+  font-style: italic;
+  color: white;
+}
+
+.hero-button {
+  background: orange;
+  color: black;
+  border: none;
+  padding: 14px 28px;
+  font-size: 1.4rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  z-index: 2;
+  border-radius: 20px;
+  box-shadow: 0px 4px 10px rgba(255, 165, 0, 0.4);
+  animation: wiggle 2s infinite, colorFlash 1.5s infinite;
+}
+
+.hero-button:hover {
+  background: #e94100;
+  color: black;
+  transform: scale(1.2) rotate(-10deg);
+  box-shadow: 0px 6px 15px rgba(255, 165, 0, 0.6);
+  animation: spin 0.5s linear, glitchEffect 0.3s infinite;
 }
